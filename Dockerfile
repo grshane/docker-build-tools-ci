@@ -11,7 +11,7 @@ ADD . /build-tools-ci
 RUN apt-get update
 # Add node
 RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-                                     && sudo apt-get install -y nodejs
+RUN sudo apt-get install -y nodejs
 RUN composer -n global require -n "hirak/prestissimo:^0.3"
 RUN /usr/bin/env COMPOSER_BIN_DIR=/usr/local/bin composer -n --working-dir=/usr/local/share require pantheon-systems/terminus "^1"
 RUN /usr/bin/env COMPOSER_BIN_DIR=/usr/local/bin composer -n --working-dir=/usr/local/share require drush/drush "^8"

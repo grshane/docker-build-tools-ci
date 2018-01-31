@@ -23,7 +23,7 @@ RUN sudo apt-get install -y nodejs
 # Install Yarn Package Manager
 RUN sudo apt-get install yarn
 # Install Gulp Globally
-RUN npm install -g gulp gulp-cli
+RUN npm install -g gulp gulp-cli phantomjs
 
 env TERMINUS_PLUGINS_DIR /usr/local/share/terminus-plugins
 RUN mkdir -p /usr/local/share/terminus-plugins

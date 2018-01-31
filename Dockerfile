@@ -7,6 +7,10 @@ WORKDIR /build-tools-ci
 # Copy the current directory contents into the container at /build-tools-ci
 ADD . /build-tools-ci
 
+# Get respoitories for Linux packages
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+RUN echo  "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 # Collect the components we need for this image
 RUN apt-get update
 RUN composer -n global require -n "hirak/prestissimo:^0.3"
@@ -14,9 +18,10 @@ RUN mkdir -p /usr/local/share/terminus
 RUN /usr/bin/env COMPOSER_BIN_DIR=/usr/local/bin composer -n --working-dir=/usr/local/share/terminus require pantheon-systems/terminus "^1"
 RUN mkdir -p /usr/local/share/drush
 RUN /usr/bin/env COMPOSER_BIN_DIR=/usr/local/bin composer -n --working-dir=/usr/local/share/drush require drush/drush "^8"
-# Add node
-RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+# Install Node.js
 RUN sudo apt-get install -y nodejs
+# Install Yarn Package Manager
+RUN sudo apt-get install yarn
 # Install Gulp Globally
 RUN npm install -g gulp gulp-cli
 

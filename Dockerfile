@@ -15,7 +15,7 @@ RUN sudo apt-get install -y nodejs
 RUN npm i -g npm@5.7.1
 RUN composer -n global require -n "hirak/prestissimo:^0.3"
 RUN /usr/bin/env COMPOSER_BIN_DIR=/usr/local/bin composer -n --working-dir=/usr/local/share require pantheon-systems/terminus "^1"
-RUN /usr/bin/env COMPOSER_BIN_DIR=/usr/local/bin composer -n --working-dir=/usr/local/share require drush/drush "^8"
+RUN /usr/bin/env COMPOSER_BIN_DIR=/usr/local/bin composer -n --working-dir=/usr/local/share require drush/drush
 
 env TERMINUS_PLUGINS_DIR /usr/local/share/terminus-plugins
 RUN mkdir -p /usr/local/share/terminus-plugins

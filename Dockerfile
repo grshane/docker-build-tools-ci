@@ -20,8 +20,8 @@ RUN mkdir -p /usr/local/share/drush
 RUN /usr/bin/env COMPOSER_BIN_DIR=/usr/local/bin composer -n --working-dir=/usr/local/share/drush require drush/drush "^8"
 # Install Node.js
 RUN sudo apt-get install -y nodejs
-# Install Yarn Package Manager
-RUN sudo apt-get install yarn
+# Install NPM v 5.7.1
+RUN npm i -g npm@5.7.1
 # Install Gulp Globally
 RUN sudo npm install -g phantomjs-prebuilt --unsafe-perm
 RUN sudo npm install -g gulp gulp-cli

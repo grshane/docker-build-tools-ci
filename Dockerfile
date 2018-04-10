@@ -25,7 +25,7 @@ RUN chmod +x /usr/local/bin/drush
 # Install Node.js
 RUN sudo apt-get install -y nodejs
 # Install NPM v 5.7.1
-RUN npm i -g npm@5.7.1
+RUN npm i -g npm
 # Install Yarn
 RUN sudo apt-get install yarn
 # Install Gulp Globally
